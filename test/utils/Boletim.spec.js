@@ -8,7 +8,7 @@ describe('Boletim.js', () => {
     })
 
     describe('adicionarNota()', () => {
-        
+
         test('Deve falhar quando o parametro nota invalido - String', () => {
             const nota = 'batata';
 
@@ -45,19 +45,38 @@ describe('Boletim.js', () => {
 
     describe('calcularMedia()', () => {
 
-        test('Deve calcular a média', () => {
-            const resultado = boletim.calcularMedia(9);
+        test('Deve falhar quando a nota for 0', () => {
+            const resultado = boletim.calcularMedia()
+
+            expect(resultado).toBe(0)
+        });
+
+        test('Deve calcular a media', () => {
+            boletim.adicionarNota(9);
+            boletim.adicionarNota(9);
+
+            const resultado = boletim.calcularMedia()
 
             expect(resultado).toBe(9)
-        });
-    }) 
+        })
+    })
 
     describe('verificarAprovacao', () => {
 
-        test('Deve verificar se a nota é igual ou maior que 7', () => {
-            const resultado = boletim.verificarAprovacao(7);
+        test('Deve falhar quando a nota é igual ou maior que 7', () => {
+            const resultado = boletim.verificarAprovacao();
 
-            expect(resultado).toBe(7)
+            expect(resultado).toBe(false)
         });
-    }) 
+
+        test('Deve verificar a aprovacao', () => {
+            boletim.adicionarNota(9);
+            boletim.adicionarNota(9);
+
+            const resultado = boletim.verificarAprovacao()
+
+            expect(resultado).toBe(true)
+        })
+    })
+
 }) 
