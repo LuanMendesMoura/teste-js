@@ -5,7 +5,7 @@ describe('Boletim.js', () => {
     let boletim;
     beforeEach(() => {
         boletim = new Boletim();
-    })
+    });
 
     describe('adicionarNota()', () => {
 
@@ -39,44 +39,47 @@ describe('Boletim.js', () => {
         test('Deve adicionar nota quando o parametro nota estiver entre 0 e 10', () => {
             const resultado = boletim.adicionarNota(9);
 
-            expect(resultado).toBe(9)
+            expect(resultado).toBe(9);
         });
-    })
+    });
 
     describe('calcularMedia()', () => {
 
-        test('Deve falhar quando a nota for 0', () => {
-            const resultado = boletim.calcularMedia()
+        test('Deve retornar 0 quando não ter nota', () => {
+            const resultado = boletim.calcularMedia();
 
-            expect(resultado).toBe(0)
+            expect(resultado).toBe(0);
         });
 
         test('Deve calcular a media', () => {
-            boletim.adicionarNota(9);
-            boletim.adicionarNota(9);
+            boletim.adicionarNota(8);
+            boletim.adicionarNota(6);
 
-            const resultado = boletim.calcularMedia()
+            const resultado = boletim.calcularMedia();
 
-            expect(resultado).toBe(9)
-        })
-    })
+            expect(resultado).toBe(7);
+        });
+    });
 
     describe('verificarAprovacao', () => {
 
-        test('Deve falhar quando a nota é igual ou maior que 7', () => {
+        test('Deve falhar quando a media for menor que 7', () => {
+            boletim.adicionarNota(5);
+            boletim.adicionarNota(5);
+
             const resultado = boletim.verificarAprovacao();
 
-            expect(resultado).toBe(false)
+            expect(resultado).toBe(false);
         });
 
-        test('Deve verificar a aprovacao', () => {
+        test('Deve aprovar quando a media for maior ou igual a 7', () => {
             boletim.adicionarNota(9);
             boletim.adicionarNota(9);
 
-            const resultado = boletim.verificarAprovacao()
+            const resultado = boletim.verificarAprovacao();
 
-            expect(resultado).toBe(true)
-        })
-    })
+            expect(resultado).toBe(true);
+        });
+    });
 
-}) 
+}); 

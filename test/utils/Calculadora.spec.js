@@ -7,7 +7,7 @@ describe('Calculadora.js', () => {
     let calculadora;
     beforeEach(() => {
         calculadora = new Calculadora();
-    })
+    });
 
     describe('somar()', () => {
 
@@ -72,7 +72,7 @@ describe('Calculadora.js', () => {
         });
     });
 
-    describe('subtrair()', () => { 
+    describe('subtrair()', () => {
 
         test('Deve falhar quando o parametro a invalido - String', () => {
             const a = 'batata';
@@ -133,9 +133,9 @@ describe('Calculadora.js', () => {
 
             expect(resultado).toBe(1);
         });
-    })
+    });
 
-    describe('multiplicar()', () => { 
+    describe('multiplicar()', () => {
 
         test('Deve falhar quando o parametro a invalido - String', () => {
             const a = 'batata';
@@ -196,9 +196,9 @@ describe('Calculadora.js', () => {
 
             expect(resultado).toBe(2);
         });
-    })
+    });
 
-    describe('dividir()', () => { 
+    describe('dividir()', () => {
 
         test('Deve falhar quando o parametro a invalido - String', () => {
             const a = 'batata';
@@ -263,7 +263,7 @@ describe('Calculadora.js', () => {
 
             expect(resultado).toBe(2);
         });
-    })
+    });
 
     describe('jurosSimples()', () => {
 
@@ -343,11 +343,11 @@ describe('Calculadora.js', () => {
         });
 
         test('Deve retornar o montante passando valores positivos', () => {
-            const resultado = calculadora.jurosSimples(1000, 0.5, 1)
+            const resultado = calculadora.jurosSimples(1000, 0.5, 1);
 
-            expect(resultado).toBe(500); 
-        })
-    })
+            expect(resultado).toBe(500);
+        });
+    });
 
     describe('jurosCompostos()', () => {
 
@@ -427,11 +427,11 @@ describe('Calculadora.js', () => {
         });
 
         test('Deve retornar o montante passando valores positivos', () => {
-            const resultado = calculadora.jurosCompostos(1000, 0.5, 1)
+            const resultado = calculadora.jurosCompostos(1000, 0.5, 1);
 
-            expect(resultado).toBe(1500); 
-        })
-    })
+            expect(resultado).toBe(1500);
+        });
+    });
 
     describe('descontoPercentual()', () => {
 
@@ -472,7 +472,7 @@ describe('Calculadora.js', () => {
         });
 
         test('Deve falhar quando o parametro percentual invalido - Array', () => {
-            expect(() => calculadora.descontoPercentual(100, [1,2,3])).toThrow(/^O valor "1,2,3" não é um número válido$/);
+            expect(() => calculadora.descontoPercentual(100, [1, 2, 3])).toThrow(/^O valor "1,2,3" não é um número válido$/);
         });
 
         test('Deve falhar quando o parametro percentual invalido - Boolean', () => {
@@ -492,11 +492,11 @@ describe('Calculadora.js', () => {
         });
 
         test('Deve descontar quando os valores forem positivos e o percentual for entre 0 e 1', () => {
-            const resultado = calculadora.descontoPercentual(100, 1)
+            const resultado = calculadora.descontoPercentual(100, 1);
 
-            expect(resultado).toBe(0)
-        })
-    })
+            expect(resultado).toBe(0);
+        });
+    });
 
     describe('descontoFixo()', () => {
 
@@ -537,7 +537,7 @@ describe('Calculadora.js', () => {
         });
 
         test('Deve falhar quando o parametro desconto invalido - Array', () => {
-            expect(() => calculadora.descontoFixo(100, [1,2,3])).toThrow(/^O valor "1,2,3" não é um número válido$/);
+            expect(() => calculadora.descontoFixo(100, [1, 2, 3])).toThrow(/^O valor "1,2,3" não é um número válido$/);
         });
 
         test('Deve falhar quando o parametro desconto invalido - Boolean', () => {
@@ -557,9 +557,9 @@ describe('Calculadora.js', () => {
         });
 
         test('Deve descontar quando os valores forem positivos e o desconto menor que o valor', () => {
-            const resultado = calculadora.descontoFixo(100, 50)
+            const resultado = calculadora.descontoFixo(100, 50);
 
-            expect(resultado).toBe(50)
-        })
-    })
+            expect(resultado).toBe(50);
+        });
+    });
 });
